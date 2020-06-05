@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:RullerPicker.xcodeproj">
+      location = "self:/Users/aleksandr/Documents/RulerPicker/RulerPicker.xcodeproj">
    </FileRef>
 </Workspace>

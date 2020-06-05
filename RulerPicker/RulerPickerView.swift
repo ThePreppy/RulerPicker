@@ -8,12 +8,12 @@
 
 import UIKit
 
-class RullerPickerCell: UICollectionViewCell {
+class RulerPickerCell: UICollectionViewCell {
     
     let label = UILabel()
     private let view = UIView()
     
-    static let reuseID = String(describing: RullerPickerCell.self)
+    static let reuseID = String(describing: RulerPickerCell.self)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -51,10 +51,10 @@ class RullerPickerCell: UICollectionViewCell {
 }
 
 protocol RullerPickerViewDelegate: class {
-    func rullerPicker(_ view: RullerPickerView, didChange value: Int)
+    func rullerPicker(_ view: RulerPickerView, didChange value: Int)
 }
 
-class RullerPickerView: UIView {
+class RulerPickerView: UIView {
     
     private var collectionView: UICollectionView
     private var values = [Int]()
@@ -96,7 +96,7 @@ class RullerPickerView: UIView {
     
     private func initialSetup() {
         collectionView.frame = bounds
-        collectionView.register(RullerPickerCell.self, forCellWithReuseIdentifier: RullerPickerCell.reuseID)
+        collectionView.register(RulerPickerCell.self, forCellWithReuseIdentifier: RulerPickerCell.reuseID)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.decelerationRate = .normal
@@ -116,7 +116,7 @@ class RullerPickerView: UIView {
     
 }
 
-extension RullerPickerView: UICollectionViewDelegate {
+extension RulerPickerView: UICollectionViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let point = CGPoint(x: self.collectionView.center.x + self.collectionView.contentOffset.x,
@@ -127,7 +127,7 @@ extension RullerPickerView: UICollectionViewDelegate {
     
 }
 
-extension RullerPickerView: UICollectionViewDelegateFlowLayout {
+extension RulerPickerView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
@@ -151,14 +151,14 @@ extension RullerPickerView: UICollectionViewDelegateFlowLayout {
     
 }
 
-extension RullerPickerView: UICollectionViewDataSource {
+extension RulerPickerView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return values.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RullerPickerCell.reuseID, for: indexPath) as? RullerPickerCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RulerPickerCell.reuseID, for: indexPath) as? RulerPickerCell else { return UICollectionViewCell() }
         
         let item = values[indexPath.row]
         cell.label.text = "\(item)"
