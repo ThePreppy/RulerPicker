@@ -8,24 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		1F9F8C8B247D9714009E9428 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F8C8A247D9714009E9428 /* AppDelegate.swift */; };
-		1F9F8C8D247D9714009E9428 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F8C8C247D9714009E9428 /* SceneDelegate.swift */; };
 		1F9F8C8F247D9714009E9428 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F8C8E247D9714009E9428 /* ViewController.swift */; };
 		1F9F8C92247D9714009E9428 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F8C90247D9714009E9428 /* Main.storyboard */; };
 		1F9F8C94247D9715009E9428 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F8C93247D9715009E9428 /* Assets.xcassets */; };
 		1F9F8C97247D9715009E9428 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F8C95247D9715009E9428 /* LaunchScreen.storyboard */; };
-		1F9F8C9F247D978C009E9428 /* RullerPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F8C9E247D978C009E9428 /* RullerPickerView.swift */; };
+		1F9F8C9F247D978C009E9428 /* RulerPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F8C9E247D978C009E9428 /* RulerPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1F9F8C87247D9714009E9428 /* RullerPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RullerPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F9F8C87247D9714009E9428 /* RulerPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RulerPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F9F8C8A247D9714009E9428 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1F9F8C8C247D9714009E9428 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1F9F8C8E247D9714009E9428 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1F9F8C91247D9714009E9428 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1F9F8C93247D9715009E9428 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F9F8C96247D9715009E9428 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F9F8C98247D9715009E9428 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1F9F8C9E247D978C009E9428 /* RullerPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RullerPickerView.swift; sourceTree = "<group>"; };
+		1F9F8C9E247D978C009E9428 /* RulerPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulerPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,7 +40,7 @@
 		1F9F8C7E247D9714009E9428 = {
 			isa = PBXGroup;
 			children = (
-				1F9F8C89247D9714009E9428 /* RullerPicker */,
+				1F9F8C89247D9714009E9428 /* RulerPicker */,
 				1F9F8C88247D9714009E9428 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,32 +48,31 @@
 		1F9F8C88247D9714009E9428 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1F9F8C87247D9714009E9428 /* RullerPicker.app */,
+				1F9F8C87247D9714009E9428 /* RulerPicker.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1F9F8C89247D9714009E9428 /* RullerPicker */ = {
+		1F9F8C89247D9714009E9428 /* RulerPicker */ = {
 			isa = PBXGroup;
 			children = (
 				1F9F8C8A247D9714009E9428 /* AppDelegate.swift */,
-				1F9F8C8C247D9714009E9428 /* SceneDelegate.swift */,
 				1F9F8C8E247D9714009E9428 /* ViewController.swift */,
-				1F9F8C9E247D978C009E9428 /* RullerPickerView.swift */,
+				1F9F8C9E247D978C009E9428 /* RulerPickerView.swift */,
 				1F9F8C90247D9714009E9428 /* Main.storyboard */,
 				1F9F8C93247D9715009E9428 /* Assets.xcassets */,
 				1F9F8C95247D9715009E9428 /* LaunchScreen.storyboard */,
 				1F9F8C98247D9715009E9428 /* Info.plist */,
 			);
-			path = RullerPicker;
+			path = RulerPicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1F9F8C86247D9714009E9428 /* RullerPicker */ = {
+		1F9F8C86247D9714009E9428 /* RulerPicker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1F9F8C9B247D9715009E9428 /* Build configuration list for PBXNativeTarget "RullerPicker" */;
+			buildConfigurationList = 1F9F8C9B247D9715009E9428 /* Build configuration list for PBXNativeTarget "RulerPicker" */;
 			buildPhases = (
 				1F9F8C83247D9714009E9428 /* Sources */,
 				1F9F8C84247D9714009E9428 /* Frameworks */,
@@ -85,9 +82,9 @@
 			);
 			dependencies = (
 			);
-			name = RullerPicker;
+			name = RulerPicker;
 			productName = RullerPicker;
-			productReference = 1F9F8C87247D9714009E9428 /* RullerPicker.app */;
+			productReference = 1F9F8C87247D9714009E9428 /* RulerPicker.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -105,7 +102,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1F9F8C82247D9714009E9428 /* Build configuration list for PBXProject "RullerPicker" */;
+			buildConfigurationList = 1F9F8C82247D9714009E9428 /* Build configuration list for PBXProject "RulerPicker" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -118,7 +115,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1F9F8C86247D9714009E9428 /* RullerPicker */,
+				1F9F8C86247D9714009E9428 /* RulerPicker */,
 			);
 		};
 /* End PBXProject section */
@@ -141,10 +138,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F9F8C9F247D978C009E9428 /* RullerPickerView.swift in Sources */,
+				1F9F8C9F247D978C009E9428 /* RulerPickerView.swift in Sources */,
 				1F9F8C8F247D9714009E9428 /* ViewController.swift in Sources */,
 				1F9F8C8B247D9714009E9428 /* AppDelegate.swift in Sources */,
-				1F9F8C8D247D9714009E9428 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,15 +286,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y2J55NQS85;
-				INFOPLIST_FILE = RullerPicker/Info.plist;
+				INFOPLIST_FILE = RulerPicker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Alx.RullerPicker;
+				PRODUCT_BUNDLE_IDENTIFIER = Alx.RulerPicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -308,22 +305,23 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y2J55NQS85;
-				INFOPLIST_FILE = RullerPicker/Info.plist;
+				INFOPLIST_FILE = RulerPicker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Alx.RullerPicker;
+				PRODUCT_BUNDLE_IDENTIFIER = Alx.RulerPicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1F9F8C82247D9714009E9428 /* Build configuration list for PBXProject "RullerPicker" */ = {
+		1F9F8C82247D9714009E9428 /* Build configuration list for PBXProject "RulerPicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1F9F8C99247D9715009E9428 /* Debug */,
@@ -332,7 +330,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1F9F8C9B247D9715009E9428 /* Build configuration list for PBXNativeTarget "RullerPicker" */ = {
+		1F9F8C9B247D9715009E9428 /* Build configuration list for PBXNativeTarget "RulerPicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1F9F8C9C247D9715009E9428 /* Debug */,

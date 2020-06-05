@@ -1,6 +1,6 @@
 //
-//  RullerPickerView.swift
-//  RullerPicker
+//  RulerPickerView.swift
+//  RulerPicker
 //
 //  Created by Александр on 26.05.2020.
 //  Copyright © 2020 Alexander. All rights reserved.
@@ -50,8 +50,8 @@ class RulerPickerCell: UICollectionViewCell {
     
 }
 
-protocol RullerPickerViewDelegate: class {
-    func rullerPicker(_ view: RulerPickerView, didChange value: Int)
+protocol RulerPickerViewDelegate: class {
+    func rulerPicker(_ view: RulerPickerView, didChange value: Int)
 }
 
 class RulerPickerView: UIView {
@@ -60,7 +60,7 @@ class RulerPickerView: UIView {
     private var values = [Int]()
     private var highlightView = UIView()
     
-    weak var delegate: RullerPickerViewDelegate?
+    weak var delegate: RulerPickerViewDelegate?
     
     public var valuesRange: ClosedRange<Int> {
         get {
@@ -106,7 +106,7 @@ class RulerPickerView: UIView {
         collectionView.contentInset = UIEdgeInsets(top: 0, left: viewHalfWidth, bottom: 0, right: viewHalfWidth)
         
         highlightView.frame.size = CGSize(width: 1, height: bounds.height)
-        highlightView.frame.origin.x = bounds.width / 2
+        highlightView.frame.origin.x = viewHalfWidth
         highlightView.backgroundColor = .red
         
         addSubview(highlightView)
@@ -122,7 +122,7 @@ extension RulerPickerView: UICollectionViewDelegate {
         let point = CGPoint(x: self.collectionView.center.x + self.collectionView.contentOffset.x,
                             y: self.collectionView.center.y + self.collectionView.contentOffset.y)
         guard let indexPath = collectionView.indexPathForItem(at: point) else { return }
-        delegate?.rullerPicker(self, didChange: values[indexPath.row])
+        delegate?.rulerPicker(self, didChange: values[indexPath.row])
     }
     
 }
