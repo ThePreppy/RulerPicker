@@ -12,19 +12,39 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var rulerPickerView: RulerPickerView!
+    let values: [Int] = Array(0...100)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         rulerPickerView.delegate = self
-        rulerPickerView.valuesRange = 0...100
+        rulerPickerView.dataSource = self
+        let config = RulerPickerConfiguration()
+        config.numberOfItems = values.count
+        rulerPickerView.configuration = config
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        rulerPickerView.toCenter(animated: true)
     }
 
 
 }
 
 extension ViewController: RulerPickerViewDelegate {
-    func rulerPicker(_ view: RulerPickerView, didChange value: Int) {
-        valueLabel.text = "\(value)"
+    func rulerPicker(_ view: RulerPickerView, didSelectValueAt row: Int) {
+        valueLabel.text = "\(values[row])"
     }
 }
 
+extension ViewController: RulerPickerViewDataSource {
+    
+    func rulerPicker(_ view: RulerPickerView, titleFor row: Int) -> String? {
+        if row % 10 == 0 {
+            return "\(values[row])"
+        }
+        
+        return nil
+    }
+    
+}
