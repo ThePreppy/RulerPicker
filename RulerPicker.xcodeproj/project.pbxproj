@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F2AD36C24B25909000D61ED /* RulerPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AD36B24B25909000D61ED /* RulerPickerViewDelegate.swift */; };
+		1F2AD36E24B25914000D61ED /* RulerPickerViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AD36D24B25914000D61ED /* RulerPickerViewDataSource.swift */; };
+		1F2AD37024B25922000D61ED /* RulerPickerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AD36F24B25922000D61ED /* RulerPickerConfiguration.swift */; };
+		1F2AD37224B2592C000D61ED /* RulerPickerCellConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AD37124B2592C000D61ED /* RulerPickerCellConfiguration.swift */; };
+		1F2AD37524B25A5F000D61ED /* RulerPickerHorizontalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AD37324B25A5E000D61ED /* RulerPickerHorizontalCell.swift */; };
+		1F2AD37624B25A5F000D61ED /* RulerPickerHorizontalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F2AD37424B25A5F000D61ED /* RulerPickerHorizontalCell.xib */; };
+		1F2AD37B24B263D1000D61ED /* RulerPickerVerticalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AD37924B263D1000D61ED /* RulerPickerVerticalCell.swift */; };
+		1F2AD37C24B263D1000D61ED /* RulerPickerVerticalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F2AD37A24B263D1000D61ED /* RulerPickerVerticalCell.xib */; };
 		1F9F8C8B247D9714009E9428 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F8C8A247D9714009E9428 /* AppDelegate.swift */; };
 		1F9F8C8F247D9714009E9428 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F8C8E247D9714009E9428 /* ViewController.swift */; };
 		1F9F8C92247D9714009E9428 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F8C90247D9714009E9428 /* Main.storyboard */; };
@@ -16,6 +24,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F2AD36B24B25909000D61ED /* RulerPickerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulerPickerViewDelegate.swift; sourceTree = "<group>"; };
+		1F2AD36D24B25914000D61ED /* RulerPickerViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulerPickerViewDataSource.swift; sourceTree = "<group>"; };
+		1F2AD36F24B25922000D61ED /* RulerPickerConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulerPickerConfiguration.swift; sourceTree = "<group>"; };
+		1F2AD37124B2592C000D61ED /* RulerPickerCellConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulerPickerCellConfiguration.swift; sourceTree = "<group>"; };
+		1F2AD37324B25A5E000D61ED /* RulerPickerHorizontalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulerPickerHorizontalCell.swift; sourceTree = "<group>"; };
+		1F2AD37424B25A5F000D61ED /* RulerPickerHorizontalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RulerPickerHorizontalCell.xib; sourceTree = "<group>"; };
+		1F2AD37924B263D1000D61ED /* RulerPickerVerticalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulerPickerVerticalCell.swift; sourceTree = "<group>"; };
+		1F2AD37A24B263D1000D61ED /* RulerPickerVerticalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RulerPickerVerticalCell.xib; sourceTree = "<group>"; };
 		1F9F8C87247D9714009E9428 /* RulerPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RulerPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F9F8C8A247D9714009E9428 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F9F8C8E247D9714009E9428 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +53,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F2AD36A24B258EE000D61ED /* RulerPicker */ = {
+			isa = PBXGroup;
+			children = (
+				1F2AD36B24B25909000D61ED /* RulerPickerViewDelegate.swift */,
+				1F2AD36D24B25914000D61ED /* RulerPickerViewDataSource.swift */,
+				1F2AD36F24B25922000D61ED /* RulerPickerConfiguration.swift */,
+				1F2AD37124B2592C000D61ED /* RulerPickerCellConfiguration.swift */,
+				1F2AD37824B263B3000D61ED /* RulerPickerVerticalCell */,
+				1F2AD37724B25A68000D61ED /* RulerPickerHorizontalCell */,
+			);
+			path = RulerPicker;
+			sourceTree = "<group>";
+		};
+		1F2AD37724B25A68000D61ED /* RulerPickerHorizontalCell */ = {
+			isa = PBXGroup;
+			children = (
+				1F2AD37324B25A5E000D61ED /* RulerPickerHorizontalCell.swift */,
+				1F2AD37424B25A5F000D61ED /* RulerPickerHorizontalCell.xib */,
+			);
+			path = RulerPickerHorizontalCell;
+			sourceTree = "<group>";
+		};
+		1F2AD37824B263B3000D61ED /* RulerPickerVerticalCell */ = {
+			isa = PBXGroup;
+			children = (
+				1F2AD37924B263D1000D61ED /* RulerPickerVerticalCell.swift */,
+				1F2AD37A24B263D1000D61ED /* RulerPickerVerticalCell.xib */,
+			);
+			path = RulerPickerVerticalCell;
+			sourceTree = "<group>";
+		};
 		1F9F8C7E247D9714009E9428 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +103,7 @@
 		1F9F8C89247D9714009E9428 /* RulerPicker */ = {
 			isa = PBXGroup;
 			children = (
+				1F2AD36A24B258EE000D61ED /* RulerPicker */,
 				1F9F8C8A247D9714009E9428 /* AppDelegate.swift */,
 				1F9F8C8E247D9714009E9428 /* ViewController.swift */,
 				1F9F8C9E247D978C009E9428 /* RulerPickerView.swift */,
@@ -125,8 +173,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F2AD37C24B263D1000D61ED /* RulerPickerVerticalCell.xib in Resources */,
 				1F9F8C97247D9715009E9428 /* LaunchScreen.storyboard in Resources */,
 				1F9F8C94247D9715009E9428 /* Assets.xcassets in Resources */,
+				1F2AD37624B25A5F000D61ED /* RulerPickerHorizontalCell.xib in Resources */,
 				1F9F8C92247D9714009E9428 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,7 +189,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F9F8C9F247D978C009E9428 /* RulerPickerView.swift in Sources */,
+				1F2AD37224B2592C000D61ED /* RulerPickerCellConfiguration.swift in Sources */,
+				1F2AD37B24B263D1000D61ED /* RulerPickerVerticalCell.swift in Sources */,
+				1F2AD37524B25A5F000D61ED /* RulerPickerHorizontalCell.swift in Sources */,
+				1F2AD37024B25922000D61ED /* RulerPickerConfiguration.swift in Sources */,
 				1F9F8C8F247D9714009E9428 /* ViewController.swift in Sources */,
+				1F2AD36E24B25914000D61ED /* RulerPickerViewDataSource.swift in Sources */,
+				1F2AD36C24B25909000D61ED /* RulerPickerViewDelegate.swift in Sources */,
 				1F9F8C8B247D9714009E9428 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,7 +343,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y2J55NQS85;
 				INFOPLIST_FILE = RulerPicker/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,7 +362,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y2J55NQS85;
 				INFOPLIST_FILE = RulerPicker/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

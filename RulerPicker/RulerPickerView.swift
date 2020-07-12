@@ -9,114 +9,6 @@
 import UIKit
 import AudioToolbox
 
-@objc class RulerPickerConfiguration: NSObject {
-    var numberOfItems: Int = 0
-    var direction: RulerDirection = .horizontal
-    var selectionViewColor: UIColor = .red
-}
-
-@objc class RulerPickerCellConfiguration: NSObject {
-    var color: UIColor = .lightGray
-    var labelColor: UIColor = .lightGray
-    var labelFont: UIFont = .systemFont(ofSize: 10)
-    var labelAlignment: NSTextAlignment = .center
-}
-
-@objc class RulerPickerCell: UICollectionViewCell {
-
-    private let horizontalContentView = UIView()
-    private let horizontalSeparator = UIView()
-    let horizontalLabel = UILabel()
-    
-    private let verticalContentView = UIView()
-    private let verticalSeparator = UIView()
-    let verticalLabel = UILabel()
-    
-    static let reuseID = String(describing: RulerPickerCell.self)
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        initialSetup()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        initialSetup()
-    }
-    
-    public func setup(_ direction: RulerDirection, title: String?) {
-        let label = direction == .horizontal ? horizontalLabel : verticalLabel
-        label.isHidden = title == nil ? true : false
-        label.text = title
-        let isHidden = direction == .horizontal ? false : true
-        horizontalContentView.isHidden = isHidden
-        verticalContentView.isHidden = !isHidden
-    }
-    
-    private func initialSetup() {
-        horizontalContentView.frame = bounds
-        horizontalSeparator.backgroundColor = .lightGray
-        
-        verticalContentView.frame = bounds
-        verticalSeparator.backgroundColor = .lightGray
-        
-        horizontalLabel.textColor = .lightGray
-        horizontalLabel.font = UIFont.systemFont(ofSize: 10)
-        horizontalLabel.adjustsFontSizeToFitWidth = true
-        horizontalLabel.textAlignment = .center
-        
-        verticalLabel.textColor = .lightGray
-        verticalLabel.font = UIFont.systemFont(ofSize: 10)
-        verticalLabel.adjustsFontSizeToFitWidth = true
-        verticalLabel.textAlignment = .center
-        
-        addSubview(horizontalContentView)
-//        addSubview(verticalContentView)
-        
-        horizontalContentView.addSubview(horizontalSeparator)
-        horizontalContentView.addSubview(horizontalLabel)
-        
-//        verticalContentView.addSubview(verticalSeparator)
-//        verticalContentView.addSubview(verticalLabel)
-        
-        horizontalSeparator.translatesAutoresizingMaskIntoConstraints = false
-        horizontalLabel.translatesAutoresizingMaskIntoConstraints = false
-//        horizontalContentView.translatesAutoresizingMaskIntoConstraints = false
-        
-//        verticalSeparator.translatesAutoresizingMaskIntoConstraints = false
-//        verticalLabel.translatesAutoresizingMaskIntoConstraints = false
-//        verticalContentView.translatesAutoresizingMaskIntoConstraints = false
-        
-        horizontalContentView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
-        horizontalContentView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
-        horizontalContentView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0).isActive = true
-        horizontalContentView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
-        
-        horizontalLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: -5).isActive = true
-        horizontalLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 5).isActive = true
-        horizontalLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0).isActive = true
-        
-        horizontalSeparator.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
-        horizontalSeparator.bottomAnchor.constraint(equalTo: horizontalLabel.topAnchor, constant: 0).isActive = true
-//        horizontalSeparator.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 0).isActive = true
-        horizontalSeparator.leadingAnchor.constraint(equalTo: horizontalContentView.leadingAnchor, constant: 0).isActive = true
-        horizontalSeparator.trailingAnchor.constraint(equalTo: horizontalContentView.trailingAnchor, constant: 0).isActive = true
-        
-        
-//        verticalContentView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
-//        verticalContentView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
-//        verticalContentView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0).isActive = true
-//        verticalContentView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
-//
-//        verticalSeparator.leadingAnchor.constraint(equalTo: verticalContentView.leadingAnchor, constant: 0).isActive = true
-//        verticalSeparator.centerYAnchor.constraint(equalTo: verticalContentView.centerYAnchor, constant: 0).isActive = true
-//        verticalSeparator.trailingAnchor.constraint(equalTo: verticalLabel.leadingAnchor, constant: 0).isActive = true
-//
-//        verticalLabel.trailingAnchor.constraint(equalTo: verticalContentView.trailingAnchor, constant: 0).isActive = true
-    }
-    
-}
-
 @objc protocol RulerPickerViewDelegate: class {
     @objc optional func rulerPicker(_ view: RulerPickerView, didSelectValueAt row: Int)
     @objc optional func rulerPicker(_ view: RulerPickerView, sizeFor row: Int) -> CGSize
@@ -127,7 +19,7 @@ import AudioToolbox
     @objc optional func rulerPicker(_ view: RulerPickerView, configurationFor indexPath: Int) -> RulerPickerCellConfiguration
 }
 
-enum RulerDirection {
+@objc enum RulerDirection: Int {
     case vertical
     case horizontal
 }
@@ -167,7 +59,9 @@ class RulerPickerView: UIView {
     
     private func initialSetup() {
         collectionView.frame = bounds
-        collectionView.register(RulerPickerCell.self, forCellWithReuseIdentifier: RulerPickerCell.reuseID)
+        collectionView.register(UINib(nibName: RulerPickerHorizontalCell.reuseID, bundle: nil), forCellWithReuseIdentifier: RulerPickerHorizontalCell.reuseID)
+        collectionView.register(UINib(nibName: RulerPickerHorizontalCell.reuseID, bundle: nil), forCellWithReuseIdentifier: RulerPickerHorizontalCell.reuseID)
+        
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.decelerationRate = .normal
@@ -197,6 +91,8 @@ class RulerPickerView: UIView {
 extension RulerPickerView: UICollectionViewDelegate {
     
     private func playSound() {
+        guard configuration.isSoundOn else { return }
+        
         var collectionCenter = collectionView.center
         collectionCenter = collectionView.convert(collectionCenter, from: collectionView.superview)
         let centerCellIndexPath = collectionView.indexPathForItem(at: collectionCenter)
@@ -226,11 +122,14 @@ extension RulerPickerView: UICollectionViewDelegateFlowLayout {
             let row = indexPath.row// + 2
             
             if row % 10 == 0 {
-                return CGSize(width: 3, height: collectionView.frame.height)
+                return CGSize(width: configuration.direction == .horizontal ? 3 : collectionView.frame.width,
+                              height: configuration.direction == .horizontal ? collectionView.frame.height : 3)
             } else if row % 10 == 5 {
-                return CGSize(width: 3, height: collectionView.frame.height / 1.5)
+                return CGSize(width: configuration.direction == .horizontal ? 3 : collectionView.frame.width / 1.5,
+                              height: configuration.direction == .horizontal ? collectionView.frame.height / 1.5 : 3)
             } else {
-                return CGSize(width: 3, height: (collectionView.frame.height / 2) + 0.1)
+                return CGSize(width: configuration.direction == .horizontal ? 3 : collectionView.frame.height / 2 + 0.1,
+                              height: configuration.direction == .horizontal ? collectionView.frame.height / 2 + 0.1 : 3)
             }
             
         }
@@ -248,6 +147,11 @@ extension RulerPickerView: UICollectionViewDelegateFlowLayout {
     
 }
 
+class RulerPickerCell: UICollectionViewCell {
+    public func setup(_ config: RulerPickerCellConfiguration?) {}
+    public func setup(_ text: String?) {}
+}
+
 extension RulerPickerView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -255,12 +159,21 @@ extension RulerPickerView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RulerPickerCell.reuseID, for: indexPath) as? RulerPickerCell else { return UICollectionViewCell() }
+        let cell: RulerPickerCell?
+        switch configuration.direction {
+        case .vertical:
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: RulerPickerHorizontalCell.reuseID, for: indexPath) as? RulerPickerHorizontalCell
+        case .horizontal:
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: RulerPickerHorizontalCell.reuseID, for: indexPath) as? RulerPickerHorizontalCell
+        }
         
         let title = dataSource?.rulerPicker(self, titleFor: indexPath.row)
-        cell.setup(configuration.direction, title: title)
+        let defaultConfig = RulerPickerCellConfiguration()
+        let config = dataSource?.rulerPicker?(self, configurationFor: indexPath.row) ?? defaultConfig
+        cell?.setup(config)
+        cell?.setup(title)
         
-        return cell
+        return cell ?? UICollectionViewCell()
     }
     
 }
