@@ -8,9 +8,8 @@
 
 import UIKit
 
-@objc class RulerPickerConfiguration: NSObject {
+public final class RulerPickerConfiguration {
     var numberOfItems: Int = 0
-    var direction: RulerDirection = .horizontal
     var selectionViewColor: UIColor = .red
     var isSoundOn = true
 }

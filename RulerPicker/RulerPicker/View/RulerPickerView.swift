@@ -19,12 +19,7 @@ import AudioToolbox
     @objc optional func rulerPicker(_ view: RulerPickerView, configurationFor indexPath: Int) -> RulerPickerCellConfiguration
 }
 
-@objc enum RulerDirection: Int {
-    case vertical
-    case horizontal
-}
-
-class RulerPickerView: UIView {
+final class RulerPickerView: UIView {
     
     private var collectionView: UICollectionView
     private var highlightView = UIView()
@@ -36,13 +31,13 @@ class RulerPickerView: UIView {
         }
     }
     
-    weak var delegate: RulerPickerViewDelegate?
+    weak public var delegate: RulerPickerViewDelegate?
     weak var dataSource: RulerPickerViewDataSource?
     
     required init(config: RulerPickerConfiguration) {
         let layout = SnappingCollectionViewLayout()
         configuration = config
-        layout.scrollDirection = configuration.direction == .horizontal ? .horizontal : .vertical
+        layout.scrollDirection = .horizontal
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         super.init(frame: .zero)
         initialSetup()
@@ -68,8 +63,8 @@ class RulerPickerView: UIView {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
         
-        let viewHalf = configuration.direction == .horizontal ? bounds.width / 2 : bounds.height / 2
-        let insets: UIEdgeInsets = configuration.direction == .horizontal ? UIEdgeInsets(top: 0, left: viewHalf, bottom: 0, right: viewHalf) : UIEdgeInsets(top: viewHalf, left: 0, bottom: viewHalf, right: 0)
+        let viewHalf = bounds.width / 2
+        let insets: UIEdgeInsets = UIEdgeInsets(top: 0, left: viewHalf, bottom: 0, right: viewHalf)
         collectionView.contentInset = insets
         
         highlightView.frame.size = CGSize(width: 1, height: bounds.height)
@@ -96,7 +91,7 @@ extension RulerPickerView: UICollectionViewDelegate {
         var collectionCenter = collectionView.center
         collectionCenter = collectionView.convert(collectionCenter, from: collectionView.superview)
         let centerCellIndexPath = collectionView.indexPathForItem(at: collectionCenter)
-
+        
         if centerCellIndexPath?.compare(self.currentIndexPath) != .orderedSame {
             AudioServicesPlaySystemSoundWithCompletion(1157, nil)
             currentIndexPath = centerCellIndexPath!
@@ -119,17 +114,14 @@ extension RulerPickerView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         guard let size = delegate?.rulerPicker?(self, sizeFor: indexPath.row) else {
-            let row = indexPath.row// + 2
+            let row = indexPath.row
             
             if row % 10 == 0 {
-                return CGSize(width: configuration.direction == .horizontal ? 3 : collectionView.frame.width,
-                              height: configuration.direction == .horizontal ? collectionView.frame.height : 3)
+                return CGSize(width: 3, height: collectionView.frame.height)
             } else if row % 10 == 5 {
-                return CGSize(width: configuration.direction == .horizontal ? 3 : collectionView.frame.width / 1.5,
-                              height: configuration.direction == .horizontal ? collectionView.frame.height / 1.5 : 3)
+                return CGSize(width: 3, height: collectionView.frame.height / 1.5)
             } else {
-                return CGSize(width: configuration.direction == .horizontal ? 3 : collectionView.frame.height / 2 + 0.1,
-                              height: configuration.direction == .horizontal ? collectionView.frame.height / 2 + 0.1 : 3)
+                return CGSize(width: 3, height: collectionView.frame.height / 2 + 0.1)
             }
             
         }
@@ -147,11 +139,6 @@ extension RulerPickerView: UICollectionViewDelegateFlowLayout {
     
 }
 
-class RulerPickerCell: UICollectionViewCell {
-    public func setup(_ config: RulerPickerCellConfiguration?) {}
-    public func setup(_ text: String?) {}
-}
-
 extension RulerPickerView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -159,13 +146,7 @@ extension RulerPickerView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: RulerPickerCell?
-        switch configuration.direction {
-        case .vertical:
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: RulerPickerHorizontalCell.reuseID, for: indexPath) as? RulerPickerHorizontalCell
-        case .horizontal:
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: RulerPickerHorizontalCell.reuseID, for: indexPath) as? RulerPickerHorizontalCell
-        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RulerPickerHorizontalCell.reuseID, for: indexPath) as? RulerPickerHorizontalCell
         
         let title = dataSource?.rulerPicker(self, titleFor: indexPath.row)
         let defaultConfig = RulerPickerCellConfiguration()
@@ -176,27 +157,4 @@ extension RulerPickerView: UICollectionViewDataSource {
         return cell ?? UICollectionViewCell()
     }
     
-}
-
-class SnappingCollectionViewLayout: UICollectionViewFlowLayout {
-
-    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
-        guard let collectionView = collectionView else { return super.targetContentOffset(forProposedContentOffset: proposedContentOffset, withScrollingVelocity: velocity) }
-
-        var offsetAdjustment = CGFloat.greatestFiniteMagnitude
-        let horizontalOffset = proposedContentOffset.x + collectionView.contentInset.left
-
-        let targetRect = CGRect(x: proposedContentOffset.x, y: 0, width: collectionView.bounds.size.width, height: collectionView.bounds.size.height)
-
-        let layoutAttributesArray = super.layoutAttributesForElements(in: targetRect)
-
-        layoutAttributesArray?.forEach({ (layoutAttributes) in
-            let itemOffset = layoutAttributes.frame.origin.x
-            if fabsf(Float(itemOffset - horizontalOffset)) < fabsf(Float(offsetAdjustment)) {
-                offsetAdjustment = itemOffset - horizontalOffset
-            }
-        })
-
-        return CGPoint(x: proposedContentOffset.x + offsetAdjustment + 1, y: proposedContentOffset.y)
-    }
 }

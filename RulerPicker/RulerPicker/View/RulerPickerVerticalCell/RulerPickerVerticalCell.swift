@@ -1,5 +1,5 @@
 //
-//  RulerPickerVerticalCell.swift
+//  RulerPickerHorizontalCell.swift
 //  RulerPicker
 //
 //  Created by Александр on 05.07.2020.
@@ -8,20 +8,21 @@
 
 import UIKit
 
-class RulerPickerHorizontalCell: RulerPickerCell {
+class RulerPickerVerticalCell: UICollectionViewCell {
 
-    @IBOutlet private weak var selectionView: UIView!
-    @IBOutlet private weak var valueLabel: UILabel!
+    @IBOutlet weak var selectionView: UIView!
+    @IBOutlet weak var valueLabel: UILabel!
     
-    static let reuseID = String(describing: RulerPickerHorizontalCell.self)
     
-    public override func setup(_ config: RulerPickerCellConfiguration?) {
+    static let reuseID = String(describing: RulerPickerVerticalCell.self)
+    
+    public func setup(_ config: RulerPickerCellConfiguration?) {
         selectionView.backgroundColor = config?.color
         valueLabel.textColor = config?.labelColor
         valueLabel.font = config?.labelFont
     }
     
-    public override func setup(_ text: String?) {
+    public func setup(_ text: String?) {
         valueLabel.isHidden = text == nil
         valueLabel.text = text
     }

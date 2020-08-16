@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc class RulerPickerCellConfiguration: NSObject {
+class RulerPickerCellConfiguration {
     var color: UIColor = .lightGray
     var labelColor: UIColor = .lightGray
     var labelFont: UIFont = .systemFont(ofSize: 10)
