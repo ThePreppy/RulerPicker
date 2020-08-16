@@ -8,7 +8,7 @@
 
 import UIKit
 
-public final class RulerPickerConfiguration {
+final class RulerPickerConfiguration {
     var numberOfItems: Int = 0
     var selectionViewColor: UIColor = .red
     var isSoundOn = true

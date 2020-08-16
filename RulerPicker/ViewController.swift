@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet var rulerPickerView: RulerPickerView!
-    let values: [Int] = Array(0...100)
+    let values = Array(0...100)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +20,7 @@ class ViewController: UIViewController {
         rulerPickerView.dataSource = self
         
         let config = RulerPickerConfiguration()
-        config.direction = .horizontal
-        config.isSoundOn = false
+        config.isSoundOn = true
         config.numberOfItems = values.count
         rulerPickerView.configuration = config
     }
