@@ -21,6 +21,7 @@
 		1F9F8C94247D9715009E9428 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F8C93247D9715009E9428 /* Assets.xcassets */; };
 		1F9F8C97247D9715009E9428 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F8C95247D9715009E9428 /* LaunchScreen.storyboard */; };
 		1F9F8C9F247D978C009E9428 /* RulerPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F8C9E247D978C009E9428 /* RulerPickerView.swift */; };
+		1FBF12032517B06E002F838A /* RulerPickerViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBF12022517B06E002F838A /* RulerPickerViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		1F9F8C96247D9715009E9428 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F9F8C98247D9715009E9428 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F9F8C9E247D978C009E9428 /* RulerPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulerPickerView.swift; sourceTree = "<group>"; };
+		1FBF12022517B06E002F838A /* RulerPickerViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulerPickerViewDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				1F2AD36B24B25909000D61ED /* RulerPickerViewDelegate.swift */,
+				1FBF12022517B06E002F838A /* RulerPickerViewDataSource.swift */,
 			);
 			path = Delegate;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 			files = (
 				1F6B409F24DFF9FB0069C4C2 /* SnappingCollectionViewLayout.swift in Sources */,
 				1F9F8C9F247D978C009E9428 /* RulerPickerView.swift in Sources */,
+				1FBF12032517B06E002F838A /* RulerPickerViewDataSource.swift in Sources */,
 				1F2AD37224B2592C000D61ED /* RulerPickerCellConfiguration.swift in Sources */,
 				1F2AD37B24B263D1000D61ED /* RulerPickerVerticalCell.swift in Sources */,
 				1F2AD37524B25A5F000D61ED /* RulerPickerHorizontalCell.swift in Sources */,

@@ -19,6 +19,9 @@ class RulerPickerHorizontalCell: UICollectionViewCell {
         selectionView.backgroundColor = config?.color
         valueLabel.textColor = config?.labelColor
         valueLabel.font = config?.labelFont
+        if let width = config?.width {
+            selectionView.widthAnchor.constraint(equalToConstant: width).isActive = true
+        }
     }
     
     public func setup(_ text: String?) {

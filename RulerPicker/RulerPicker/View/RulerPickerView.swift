@@ -9,16 +9,6 @@
 import UIKit
 import AudioToolbox
 
-@objc protocol RulerPickerViewDelegate: class {
-    @objc optional func rulerPicker(_ view: RulerPickerView, didSelectValueAt row: Int)
-    @objc optional func rulerPicker(_ view: RulerPickerView, sizeFor row: Int) -> CGSize
-}
-
-@objc protocol RulerPickerViewDataSource: class {
-    @objc func rulerPicker(_ view: RulerPickerView, titleFor indexPath: Int) -> String?
-    @objc optional func rulerPicker(_ view: RulerPickerView, configurationFor indexPath: Int) -> RulerPickerCellConfiguration
-}
-
 final class RulerPickerView: UIView {
     
     private var collectionView: UICollectionView

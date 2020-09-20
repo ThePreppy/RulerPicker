@@ -13,4 +13,5 @@ import UIKit
     var labelColor: UIColor = .lightGray
     var labelFont: UIFont = .systemFont(ofSize: 10)
     var labelAlignment: NSTextAlignment = .center
+    var width: CGFloat? = nil
 }

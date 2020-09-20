@@ -34,9 +34,11 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: RulerPickerViewDelegate {
+    
     func rulerPicker(_ view: RulerPickerView, didSelectValueAt row: Int) {
         valueLabel.text = "\(values[row])"
     }
+    
 }
 
 extension ViewController: RulerPickerViewDataSource {

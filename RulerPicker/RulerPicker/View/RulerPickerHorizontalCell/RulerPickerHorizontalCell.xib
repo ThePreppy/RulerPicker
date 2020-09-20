@@ -31,12 +31,13 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="5Z1-Gg-s7w" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="1lx-P3-K0N"/>
-                <constraint firstAttribute="trailing" secondItem="5Z1-Gg-s7w" secondAttribute="trailing" id="9es-PN-JeO"/>
+                <constraint firstAttribute="trailing" secondItem="5Z1-Gg-s7w" secondAttribute="trailing" priority="750" id="9es-PN-JeO"/>
                 <constraint firstAttribute="trailing" secondItem="sx3-hp-ZvK" secondAttribute="trailing" constant="-10" id="Ayi-6g-tS8"/>
                 <constraint firstItem="sx3-hp-ZvK" firstAttribute="top" secondItem="5Z1-Gg-s7w" secondAttribute="bottom" id="JNr-uQ-Eqc"/>
                 <constraint firstAttribute="bottom" secondItem="sx3-hp-ZvK" secondAttribute="bottom" id="WBT-BT-adQ"/>
+                <constraint firstItem="5Z1-Gg-s7w" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="cim-df-wd0"/>
                 <constraint firstItem="sx3-hp-ZvK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="-10" id="kPB-2o-Wrh"/>
-                <constraint firstItem="5Z1-Gg-s7w" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="tVC-4e-x18"/>
+                <constraint firstItem="5Z1-Gg-s7w" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" priority="750" id="tVC-4e-x18"/>
             </constraints>
             <size key="customSize" width="144" height="350"/>
             <connections>
